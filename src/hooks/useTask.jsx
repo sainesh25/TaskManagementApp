@@ -32,8 +32,6 @@ export function useTasks() {
   };
 
   const deleteTask = (id) => {
-    console.log(id);
-    console.log(tasks);
     const updatedTasks = tasks.filter((item) => {
       return item.id !== id
     })

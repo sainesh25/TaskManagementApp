@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { useTasks } from '@/hooks/useTask';
-import { Task } from '@/components2/Task/Task';
+import { Link } from 'react-router';
+import { ArrowRight } from 'lucide-react';
 
-export default function Home() {
-  const { tasks, addTask, toggleTask, deleteTask } = useTasks();
+export default function AddTask() {
+  const { addTask } = useTasks();
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
   const handleSubmit = (e) => {
@@ -33,26 +34,21 @@ export default function Home() {
                         value={newTaskTitle}
                         onChange={(e) => setNewTaskTitle(e.target.value)}
                         placeholder="Enter a new task"
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                        className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                       />
                     </div>
                   </div>
                   <div>
                     <button
                       type="submit"
-                      className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-indigo-500"
                     >
                       Add Task
                     </button>
                   </div>
                 </form>
-              </div>
-              <div className="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
-                <p>Tasks:</p>
-                <div className="mt-4 space-y-4">
-                  {tasks.map((task) => (
-                    <Task key={task.id} task={task} onToggle={toggleTask} onDelete={deleteTask}/>
-                  ))}
+                <div className="flex w-full justify-end">
+                    <Link to={'/view-tasks'} className='text-indigo-600 font-semibold flex items-center'><ArrowRight className='w-5 h-5 mr-2'/> View Tasks</Link>
                 </div>
               </div>
             </div>

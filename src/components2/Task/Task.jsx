@@ -9,7 +9,7 @@ export function Task({ task, onToggle, onDelete }) {
                 onChange={() => onToggle(task.id)}
                 className="form-checkbox h-5 w-5 text-blue-600"
             />
-            <span className={`flex-1 ${task.completed ? 'line-through text-gray-500' : ''}`}>
+            <span className={`flex-1 break-words ${task.completed ? 'line-through text-gray-500' : ''}`}>
                 {task.title}
             </span>
             <button className="p-2 rounded-md text-xs" onClick={() => { onDelete(task.id) }}><FaRegTrashAlt className="text-red-600" size={20}/></button>

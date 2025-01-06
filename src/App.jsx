@@ -1,12 +1,20 @@
-import { useState } from 'react'
 import './App.css'
-import Home from './components2/Home/Home'
+import AddTask from './pages/AddTask/AddTask'
+import Home from './pages/Home/Home'
+import { Link, Route, Routes } from 'react-router'
+import ViewTasks from './pages/ViewTasks/ViewTasks'
 
 function App() {
-  
+
   return (
     <>
-      <Home/>
+      <div className="min-h-screen flex-justify-center items-center flex-col">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='add-task' element={<AddTask />} />
+          <Route path='view-tasks' element={<ViewTasks />} />
+        </Routes>
+      </div>
     </>
   )
 }

@@ -42,4 +42,3 @@ export function useTasks() {
 
   return { tasks, addTask, toggleTask, deleteTask };
 }
-

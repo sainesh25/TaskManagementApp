@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 export default function Home() {
   return (
-    <div className="border rounded-lg m-6">
+    <div className="border rounded-lg m-6 md:w-1/2 w-[95%] mx-auto">
       <h1 className='text-2xl sm:text-4xl font-bold text-center my-8'>Task Management App</h1>
 
       <div className="flex min-h-40 justify-center items-center sm:flex-row flex-col gap-5 p-10">

@@ -2,7 +2,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 export function Task({ task, onToggle, onDelete }) {
     return (
-        <div className="flex items-center space-x-3 p-3 bg-white rounded-lg shadow">
+        <div className="flex items-center space-x-3 p-3 mr-2 bg-white rounded-lg shadow">
             <input
                 type="checkbox"
                 checked={task.completed}

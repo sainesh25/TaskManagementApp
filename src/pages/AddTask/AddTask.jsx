@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-react';
 export default function AddTask() {
     const { addTask } = useTasks();
     const [newTaskTitle, setNewTaskTitle] = useState('');
+    const [error, setError] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,7 +16,20 @@ export default function AddTask() {
             addTask(newTaskTitle.trim());
             setNewTaskTitle('');
         }
+
     };
+
+    const handleChange = (e) => {
+        setNewTaskTitle(e.target.value);
+        if(e.target.value.length <= 0){
+            setError('Task cannot be empty');
+        } else {
+            setError('')
+        }
+    }
+
+    // console.log('err', error);
+
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
@@ -26,22 +40,23 @@ export default function AddTask() {
                         <div className="divide-y divide-gray-200">
                             <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                 <h2 className="text-3xl font-extrabold text-gray-900">Task Management</h2>
-                                <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                                <form onSubmit={handleSubmit} className="mt-8">
                                     <div className="rounded-md shadow-sm -space-y-px">
                                         <div>
                                             <input
                                                 type="text"
                                                 value={newTaskTitle}
-                                                onChange={(e) => setNewTaskTitle(e.target.value)}
+                                                onChange={handleChange}
                                                 placeholder="Enter a new task"
                                                 className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                             />
                                         </div>
                                     </div>
+                                        <p className='text-red-500 text-xs mt-1'>{error}</p>
                                     <div>
                                         <button
                                             type="submit"
-                                            className="relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-indigo-500"
+                                            className="relative w-full mt-4 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-indigo-500"
                                         >
                                             Add Task
                                         </button>

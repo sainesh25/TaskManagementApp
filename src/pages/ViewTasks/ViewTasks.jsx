@@ -19,7 +19,7 @@ export default function ViewTasks() {
                                 <div className="pt-6 text-base leading-6 font-bold sm:text-lg sm:leading-7">
                                     <h2 className="text-3xl font-extrabold text-gray-900">View Tasks</h2>
 
-                                    <div className="mt-4 space-y-4">
+                                    <div className="mt-4 space-y-4 max-h-80 overflow-y-scroll" style={{scrollbarWidth: 'thin'}}>
 
                                         {
                                             tasks.length > 0 ?
